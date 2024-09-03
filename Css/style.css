@@ -40,19 +40,43 @@ ul {
 }
 
 .section {
-  background: var(--bg-black-50);
+  background: var(--bg-black-900);
   min-height: 100vh;
+  display: block;
   z-index: 0;
   opacity: 1;
   padding: 0 30px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 270px;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+.section.back-section {
+  z-index: 1;
+}
+
+.section.active {
+  z-index: 2;
+  opacity: 1;
+  animation: slideSection 1s ease;
+}
+
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .hidden {
   display: none !important;
-}
-
-.main-content {
-  padding-left: 270px;
 }
 
 .padd-15 {
@@ -126,9 +150,9 @@ ul {
   border: none;
 }
 
-.btn:hover {
+/* .btn:hover {
   transform: scale(1.05);
-}
+} */
 
 .shadow-dark {
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
@@ -148,6 +172,7 @@ ul {
   justify-content: center;
   align-items: center;
   border-right: 1px solid var(--bg-black-50);
+  transition: all 0.3s ease;
 }
 
 .aside .logo {
@@ -205,6 +230,7 @@ ul {
   display: none;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .aside .nav-toggler span {
@@ -213,6 +239,10 @@ ul {
   background: var(--skin-color);
   display: inline-block;
   position: relative;
+}
+
+.aside .nav-toggler.open span {
+  background-color: transparent;
 }
 
 .aside .nav-toggler span::before {
@@ -225,6 +255,11 @@ ul {
   left: 0;
 }
 
+.aside .nav-toggler.open span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
 .aside .nav-toggler span::after {
   content: "";
   height: 2px;
@@ -233,6 +268,11 @@ ul {
   position: absolute;
   top: 6px;
   left: 0;
+}
+
+.aside .nav-toggler.open span::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 .aside .nav {
@@ -394,7 +434,6 @@ h3.my-profession {
 }
 
 .about .about-content .personal-info .buttons .btn {
-  margin-right: 15px;
   margin-top: 10px;
 }
 
@@ -654,12 +693,33 @@ h3.my-profession {
 
 /* Responsive */
 @media (max-width: 1199px) {
+  .section .container {
+    padding-top: 70px;
+  }
+
   .aside {
     left: -270px;
   }
 
-  .main-content {
-    padding: 0;
+  .aside.open {
+    left: 0;
+  }
+
+  .aside .nav-toggler {
+    display: flex;
+    left: 30px;
+  }
+
+  .aside .nav-toggler.open {
+    left: 300px;
+  }
+
+  .section {
+    left: 0;
+  }
+
+  .section.open {
+    left: 270px;
   }
 
   .about .about-content .personal-info .info-item p span {
