@@ -82,15 +82,3 @@ function asideSectionTogglerBtn() {
             allSection[i].classList.toggle("open");
       }
 }
-
-function sendEmail() {
-      Email.send({
-            Host: "smtp.gmail.com",
-            Username: "jainamrupani2003@gmail.com",
-            Password: "Rupani@0410",
-            To: "jainamrupani04@gmail.com",
-            From: document.getElementById("email").value,
-            Subject: document.getElementById("subject").value,
-            Body: document.getElementById("message").value,
-      }).then((message) => alert(message));
-}

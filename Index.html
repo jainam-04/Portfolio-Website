@@ -433,7 +433,12 @@
           <!-- ===== Contact Form ===== -->
           <div class="row">
             <div class="contact-form padd-15">
-              <form onsubmit="sendEmail(); reset(); return false;">
+              <form action="https://api.web3forms.com/submit" method="post">
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="0b32809e-6f18-456d-9982-fec40beba2d0"
+                />
                 <div class="row">
                   <div class="form-item col-6 padd-15">
                     <div class="form-group">
@@ -442,6 +447,7 @@
                         id="name"
                         class="form-control"
                         placeholder="Name"
+                        name="name"
                         required
                       />
                     </div>
@@ -452,6 +458,7 @@
                         type="email"
                         id="email"
                         class="form-control"
+                        name="email"
                         placeholder="Email"
                         required
                       />
@@ -465,6 +472,7 @@
                         type="text"
                         id="subject"
                         placeholder="Subject"
+                        name="subject"
                         class="form-control"
                         required
                       />
@@ -478,6 +486,7 @@
                         class="form-control"
                         id="message"
                         placeholder="Message"
+                        name="message"
                         required
                       ></textarea>
                     </div>
