@@ -596,6 +596,13 @@ h3.my-profession {
   cursor: pointer;
 }
 
+.projects .projects-item .projects-item-inner h1 {
+  color: var(--text-black-900);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .projects .projects-item-inner .projects-img img {
   width: 100%;
   height: 30vh;
